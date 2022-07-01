@@ -9,7 +9,7 @@ public class MyQueue {
     public boolean isEmpty() {
         return (currentSize == 0);
     }
-    public void append(int data){
+    public void enQueue(int data){
         Node oldRear = rear;
         rear = new Node(data);
         rear.data = data;
@@ -22,5 +22,14 @@ public class MyQueue {
         }
         currentSize++;
         System.out.println(data + " added to the queue");
+    }
+    public void deQueue(){
+        int data = front.data;
+        front = front.next;
+        if (isEmpty()) {
+            rear = null;
+        }
+        currentSize--;
+        System.out.println(data + " removed from the queue");
     }
 }
